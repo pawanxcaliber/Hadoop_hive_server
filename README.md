@@ -11,7 +11,9 @@ To run Hive with postgresql metastore:
 ```
    python container_start.py
 ```
+Run the script present in the directory 
 
-#This is a fork of docker-hive from Big-Data Europe 
+# This is a fork of docker-hive from Big-Data Europe 
 Check out their repo
 https://github.com/big-data-europe/docker-hive 
+https://github.com/big-data-europe
