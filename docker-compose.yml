@@ -31,7 +31,7 @@ services:
       HIVE_CORE_CONF_javax_jdo_option_ConnectionURL: "jdbc:postgresql://hive-metastore/metastore"
       SERVICE_PRECONDITION: "hive-metastore:9083"
     ports:
-      - "10000:10000"
+      - "${HIVE_SERVER_HOST_PORT}:10000"  # Container port remains 10000
 
   hive-metastore:
     image: bde2020/hive:2.3.2-postgresql-metastore
@@ -41,7 +41,7 @@ services:
     environment:
       SERVICE_PRECONDITION: "namenode:50070 datanode:50075 hive-metastore-postgresql:5432"
     ports:
-      - "9083:9083"
+      - "${HIVE_METASTORE_HOST_PORT}:9083"  # Container port remains 9083
 
   hive-metastore-postgresql:
     image: bde2020/hive-metastore-postgresql:2.3.0
@@ -49,7 +49,7 @@ services:
   presto-coordinator:
     image: shawnzhu/prestodb:0.181
     ports:
-      - "8080:8080"
+      - "${PRESTO_HOST_PORT}:8080"  # Container port remains 8080
 
 volumes:
   namenode:
